@@ -13,6 +13,6 @@ public class MyBinaryTreeTest {
 		myBinaryTree.add(70);
 		int size = myBinaryTree.getSize();
 		System.out.println(size);
-		Assert.assertEquals(4, size);
+		Assert.assertEquals(3, size);
 	}
 }
