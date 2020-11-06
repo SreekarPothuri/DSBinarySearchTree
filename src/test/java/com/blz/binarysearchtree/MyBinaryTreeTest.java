@@ -14,7 +14,7 @@ public class MyBinaryTreeTest {
 		int size = myBinaryTree.getSize();
 		Assert.assertEquals(3, size);
 	}
-	
+
 	@Test
 	public void givenTreeStructureWhenAddedToBSTShouldReturnSize() {
 		MyBinaryTree<Integer> myBinaryTree = new MyBinaryTree<>();
@@ -34,7 +34,7 @@ public class MyBinaryTreeTest {
 		int size = myBinaryTree.getSize();
 		Assert.assertEquals(13, size);
 	}
-	
+
 	@Test
 	public void givenTreeStructureWhenAddedToBSTShouldReturnSizeAndSearchElement() {
 		MyBinaryTree<Integer> myBinaryTree = new MyBinaryTree<>();
@@ -51,7 +51,7 @@ public class MyBinaryTreeTest {
 		myBinaryTree.add(16);
 		myBinaryTree.add(63);
 		myBinaryTree.add(67);
-		boolean result = myBinaryTree.searchRecursively(myBinaryTree.root,63);
+		boolean result = myBinaryTree.searchRecursively(myBinaryTree.root, 63, null);
 		Assert.assertTrue(true);
 	}
 }
