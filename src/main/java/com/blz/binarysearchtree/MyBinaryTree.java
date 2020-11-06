@@ -2,6 +2,7 @@ package com.blz.binarysearchtree;
 
 public class MyBinaryTree<K extends Comparable<K>> {
 	public MyBinaryNode<K> root;
+	public MyBinaryNode<K> current;
 
 	public void add(K key) {
 		this.root = this.addRecursively(root, key);
@@ -28,18 +29,26 @@ public class MyBinaryTree<K extends Comparable<K>> {
 	private int getSizeRecursive(MyBinaryNode<K> current) {
 		return current == null ? 0 : 1 + this.getSizeRecursive(current.left) + this.getSizeRecursive(current.right);
 	}
-	
-	public boolean searchRecursively(MyBinaryNode<K> current, int value) {
-		if (current == null)
-			return false;
-		if ((int) current.key == value)
-			return true;
-		if (value < (int) current.key) {
-			return searchRecursively(current.left, value);
-		} else if (value > (int) current.key) {
-			return searchRecursively(current.right, value);
-		}else {
+
+	public boolean searchRecursively(MyBinaryNode<K> root, int value, MyBinaryNode<K> parent) {
+		if (root == null) {
 			return false;
 		}
+		if (root.key.equals(value)) {
+			if (parent == null) {
+				System.out.println("the node with key " + value + " is root node");
+			} else if (value > (int) parent.key) {
+				System.out.println("Given key is right node of node with key " + parent.key);
+			} else {
+				System.out.println("Given key is left node of node with key " + parent.key);
+			}
+		}
+
+		if (value < (int) root.key)
+			searchRecursively(root.left, value, root);
+		else
+			searchRecursively(root.right, value, root);
+
+		return true;
 	}
 }
